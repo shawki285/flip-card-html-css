@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    text-transform: capitalize;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, #e3e4e483 0%, #e9eeee77 100%);
+}
+
+.center, .front-face,
+.content, .back-face{
+    position: absolute;
+}
+
+.front-face, .back-face{
+    height: 350px;
+    width: 300px;
+    text-align: center;
+    box-shadow: -2px 2px 5px -1px #504e4efc;
+    background: #ece6e6f5;
+    background-size: cover;
+    background-position: center;
+    transform: translateY(0deg);
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: .7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.content{
+    left: 0%;
+    top: 50%;
+    width: 100%;
+    perspective: 1000px;
+    transform: translateY(-50%) translateZ(60px) scale(.94);
+}
+
+.front img{
+    margin-top: -149px;
+    margin-left: 6px;
+    width: 307px;
+    height: 307px;
+}
+
+.brand{
+    margin: 10px;
+    font-size: 30px;
+}
+
+.brand span{
+    font-weight: bold;
+}
+
+.fa-star{
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.checked{
+    color: orange;
+}
+
+.price{
+    font-size: 20px;
+    margin: 10px;
+}
+
+.back-face{
+    transform: rotateY(180deg);
+}
+
+.back{
+    padding: 5px;
+}
+.back p{
+    font-size: 22px;
+    padding-bottom: 15px;
+    color: #e89f08;
+}
+
+.back ul{
+    list-style: none;
+    text-align: justify;
+}
+
+.back a{
+    position: relative;
+    display: inline-block;
+    background-color: #e89f08;
+    color: #000;
+    font-weight: lighter;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 40px;
+    transition: .5s ease-in-out;
+}
+
+.back a:hover{
+    background-color: #573707;
+    color: aliceblue;
+}
+
+.back ul li{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.center:hover > .back-face{
+    transform: rotateY(0deg);
+}
+
+.center:hover > .front-face{
+    transform: rotateY(-180deg);
+    visibility: hidden;
+}
